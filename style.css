@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+
 html {
   --primary-color: #161f6d;
   --secondary-color: #00abe1;
@@ -11,13 +13,13 @@ body {
 body {
   font-size: 20px;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
+  font-family: "Luckiest Guy", cursive;
   padding-top: 1em;
   padding-bottom: 1em;
   background-color: var(--secondary-color);
   color: var(--primary-color);
-  font-family: "Luckiest Guy", cursive;
   letter-spacing: 0.15em;
 }
 
@@ -25,7 +27,7 @@ body {
   font-size: 2em;
 }
 
-.discription {
+.description {
   font-size: 1.5em;
 }
 
@@ -38,16 +40,18 @@ body {
 
 #new-game-button {
   border: none;
-  border-radius: 0.5em;
-  padding: 0.5em 1.5em;
-  background-color: var(--primary-color);
-  color: white;
+  border-radius: 5px;
+  padding: 0.5em;
+  background: var(--primary-color);
   cursor: pointer;
-  transition: all 0.3s ease;
+  color: white;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease-in-out;
+  padding: 0.5em 1.5em;
+  border-radius: 1.5em;
   font-size: 1em;
   font-family: inherit;
   letter-spacing: inherit;
-  text-transform: uppercase;
 }
 
 #new-game-button:hover {
@@ -69,6 +73,10 @@ body {
   transition: transform 0.5s;
 }
 
+.card.visible .card-inner {
+  transform: rotateY(180deg);
+}
+
 .card-front,
 .card-back {
   width: 100%;
@@ -80,16 +88,17 @@ body {
   align-items: center;
   background-color: var(--primary-color);
   border-radius: 0.5em;
+  box-shadow: 0.05em 0.05em 0.05em 0.05em rgba(0, 0, 0, 0.1);
   font-size: 2.5em;
   color: white;
-  cursor: pointer;
-  box-shadow: 0.05em 0.05em 0.05em 0.05em rgba(0, 0, 0, 0.2);
-}
-
-.card.visible:hover .card-inner {
-  transform: rotateY(180deg);
 }
 
 .card-back {
   transform: rotateY(180deg);
+}
+
+@media (max-width: 768px) {
+  #game-board {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
